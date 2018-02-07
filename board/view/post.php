@@ -12,6 +12,8 @@
     <title>포스트</title>
 </head>
 <body>
+<?php include('./nav.php') ?>
+<h1>게시물</h1>
 <h1 id="title"></h1>
 <div id="content">
 </div>
