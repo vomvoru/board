@@ -24,6 +24,10 @@ class MySQL extends Base {
             throw new Exception('db 접속 실패');
         }
     }
+
+    public function close(){
+        $this->mysqli->close();
+    }
     
     public function createPost($title, $content){
         //TODO 대략 이런식으로: $DB->insert(array('Title' => $title, 'Contnet' => $Content));
