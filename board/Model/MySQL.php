@@ -28,7 +28,7 @@ class MySQL extends Base {
         $this->mysqli->close();
     }
     
-    public function createPost($title, $content){
+    public function createPost($title, $content) {
         //TODO 대략 이런식으로: $DB->insert(array('Title' => $title, 'Contnet' => $Content));
         // http://docs.sequelizejs.com/ 참고
         $query = 'INSERT INTO Post (Title, Content) VALUES ("'.$title.'", "'.$content.'")';
@@ -42,8 +42,8 @@ class MySQL extends Base {
         $queryResult = $this->runQuery($query);
         
         $row = $queryResult->fetch_assoc();
-        
-        if($row === FALSE){
+
+        if(count($row) === 0){
             throw new ClientException('게시물이 없습니다.');
         }
         

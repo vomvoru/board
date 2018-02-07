@@ -42,6 +42,6 @@ jQuery(($) => {
     }
 
     function goList(){
-        window.location.href = "../posts.php"
+        window.location.href = "./posts.php"
     }
 })

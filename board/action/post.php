@@ -5,8 +5,13 @@ include_once $_SERVER["DOCUMENT_ROOT"].'/board/Model/MySQL.php';
 include_once $_SERVER["DOCUMENT_ROOT"].'/board/REST.php';
 include_once $_SERVER["DOCUMENT_ROOT"].'/board/Response.php';
 include_once $_SERVER["DOCUMENT_ROOT"].'/board/Request.php';
+include_once $_SERVER["DOCUMENT_ROOT"].'/board/ActionLogic.php';
+include_once $_SERVER["DOCUMENT_ROOT"].'/board/Exception/ClientException.php';
 
 use App\Model\MySQL;
+
+use Exception;
+use App\Exception\ClientException;
 
 class PostREST extends REST{
     public function get(){
@@ -48,6 +53,5 @@ class PostREST extends REST{
     }
 }
 
-$postRest = new PostREST();
-$postRest->run();
+ActionLogic::run(new PostREST());
 ?>

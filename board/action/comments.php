@@ -4,12 +4,15 @@ namespace App;
 include_once $_SERVER["DOCUMENT_ROOT"].'/board/Model/MySQL.php';
 include_once $_SERVER["DOCUMENT_ROOT"].'/board/REST.php';
 include_once $_SERVER["DOCUMENT_ROOT"].'/board/Response.php';
+include_once $_SERVER["DOCUMENT_ROOT"].'/board/Request.php';
+include_once $_SERVER["DOCUMENT_ROOT"].'/board/ActionLogic.php';
 
 use App\Model\MySQL;
+use App\Exception\ClientException;
 
 class CommentsREST extends REST{
     public function get(){
-        $relatedPostID = $_GET['relatedPostID'];
+        $relatedPostID = Request::get('relatedPostID');
         
         $db = MySQL::getInstance();
         $db->connect();
@@ -33,6 +36,5 @@ class CommentsREST extends REST{
     }
 }
 
-$commentsREST = new CommentsREST();
-$commentsREST->run();
+ActionLogic::run(new CommentsREST());
 ?>
