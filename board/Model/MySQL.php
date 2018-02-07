@@ -8,7 +8,6 @@ use Exception;
 use Mysqli;
 use App\Exception\ClientException;
 
-//App\Exception\ClientException
 class MySQL extends Base {
     private $mysqli;
     
