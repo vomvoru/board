@@ -1,11 +1,36 @@
 <?php
+namespace App;
+
 include_once $_SERVER["DOCUMENT_ROOT"].'/board/Model/MySQL.php';
+include_once $_SERVER["DOCUMENT_ROOT"].'/board/REST.php';
+include_once $_SERVER["DOCUMENT_ROOT"].'/board/Output.php';
 
-//TODO 설정파일에서 무슨 DB를 쓸것인지 설정 가능하게
-$db = App\Model\MySQL::getInstance();
-$db->connect();
-$posts = $db->readPosts();
+use App\Model\MySQL;
 
-$result = array('error' => FALSE, 'data' => $posts);
-echo json_encode($result);
+class PostsREST extends REST{
+    public function get(){
+        $db = MySQL::getInstance();
+        $db->connect();
+
+        $posts = $db->readPosts();
+
+        $db->close();
+        
+        Output::JSON($posts);
+    }
+    
+    public function post(){
+    }
+    
+    public function put(){
+        
+    }
+    
+    public function delete(){
+        
+    }
+}
+
+$postsREST = new PostsREST();
+$postsREST->run();
 ?>

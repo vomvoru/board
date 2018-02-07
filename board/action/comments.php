@@ -1,13 +1,38 @@
 <?php
+namespace App;
+
 include_once $_SERVER["DOCUMENT_ROOT"].'/board/Model/MySQL.php';
+include_once $_SERVER["DOCUMENT_ROOT"].'/board/REST.php';
+include_once $_SERVER["DOCUMENT_ROOT"].'/board/Output.php';
 
-$relatedPostID = $_GET['relatedPostID'];
+use App\Model\MySQL;
 
-$db = App\Model\MySQL::getInstance();
-$db->connect();
-$comments = $db->readComments($relatedPostID);
+class CommentsREST extends REST{
+    public function get(){
+        $relatedPostID = $_GET['relatedPostID'];
+        
+        $db = MySQL::getInstance();
+        $db->connect();
 
-//TODO 출력 형식이 중복되어있다.(정해져있다)
-$result = array('error' => FALSE, 'data' => $comments);
-echo json_encode($result);
+        $comments = $db->readComments($relatedPostID);
+
+        $db->close();
+        
+        Output::JSON($comments);
+    }
+    
+    public function post(){
+    }
+    
+    public function put(){
+        
+    }
+    
+    public function delete(){
+        
+    }
+}
+
+$commentsREST = new CommentsREST();
+$commentsREST->run();
 ?>
