@@ -3,16 +3,14 @@ namespace App;
 
 include_once $_SERVER["DOCUMENT_ROOT"].'/board/Model/MySQL.php';
 include_once $_SERVER["DOCUMENT_ROOT"].'/board/REST.php';
-include_once $_SERVER["DOCUMENT_ROOT"].'/board/Output.php';
-//TODO Input 개발
+include_once $_SERVER["DOCUMENT_ROOT"].'/board/Response.php';
+include_once $_SERVER["DOCUMENT_ROOT"].'/board/Request.php';
 
 use App\Model\MySQL;
 
 class PostREST extends REST{
     public function get(){
-        //TODO $id = INPUT::get('id')
-        //TODO route 설정이 필요.
-        $id = $_GET['id'];
+        $id = Request::get('id');
         
         //TODO 클라이언트 입력값 필터링
         
@@ -24,12 +22,12 @@ class PostREST extends REST{
 
         $db->close();
 
-        Output::JSON($post);
+        Response::sendJSON($post);
     }
     
     public function post(){
-        $title = $_POST['title'];
-        $content = $_POST['content'];
+        $title = Request::get('title');
+        $content = Request::get('content');
         
         $db = MySQL::getInstance();
         $db->connect();
@@ -38,7 +36,7 @@ class PostREST extends REST{
 
         $db->close();
         
-        Output::JSON();
+        Response::sendJSON();
     }
     
     public function put(){
