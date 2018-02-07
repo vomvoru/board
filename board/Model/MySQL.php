@@ -6,6 +6,7 @@ include_once $_SERVER["DOCUMENT_ROOT"].'/board/Exception/ClientException.php';
 
 use Exception;
 use Mysqli;
+use App\Exception\ClientException;
 
 //App\Exception\ClientException
 class MySQL extends Base {
@@ -40,7 +41,7 @@ class MySQL extends Base {
         $row = $queryResult->fetch_assoc();
         
         if($row === FALSE){
-            throw new \App\Exception\ClientException('게시물이 없습니다.');
+            throw new ClientException('게시물이 없습니다.');
         }
         
         $data = array('title' => $row['Title'], 'content' => $row['Content']);

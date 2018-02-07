@@ -3,7 +3,9 @@ namespace App\Model;
 
 include_once $_SERVER["DOCUMENT_ROOT"].'/board/DesginPattern/Singleton.php';
 
-abstract class Base extends \App\DesginPattern\Singleton {
+use App\DesginPattern\Singleton;
+
+abstract class Base extends Singleton {
     abstract public function createPost($title, $content);
     abstract public function readPost($id);
     abstract public function updatePost();
