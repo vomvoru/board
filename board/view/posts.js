@@ -6,7 +6,7 @@ jQuery(($) => {
     getPosts()
 
     async function getPosts(){
-        var { error, message, data: posts } = await $.getJSON('./action/posts.php')
+        var { error, message, data: posts } = await $.getJSON('../action/posts.php')
         console.log(error, message, posts);
         if(error){
             alert(message)

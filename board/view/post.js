@@ -12,12 +12,12 @@ jQuery(($) => {
 
     $DOM.send.on('click', async () => {
         var content = $DOM.comment.val()
-        await $.post('./action/comment.php', { content, relatedPostID: id })
+        await $.post('../action/comment.php', { content, relatedPostID: id })
         location.reload();
     })
 
     async function run(id){
-        var { error, message, data: post } = await $.getJSON('./action/post.php', { id })
+        var { error, message, data: post } = await $.getJSON('../action/post.php', { id })
         console.log(error, message, post);
         if(error){
             alert(message)
@@ -26,7 +26,7 @@ jQuery(($) => {
         $DOM.content.text(post.content)
         $DOM.title.text(post.title)
 
-        var { error, message, data: comments } = await $.getJSON('./action/comments.php', { relatedPostID: id })
+        var { error, message, data: comments } = await $.getJSON('../action/comments.php', { relatedPostID: id })
         console.log(error, message, comments);
         if(error){
             alert(message)

@@ -36,12 +36,12 @@ jQuery(($) => {
 
         // @TODO client 필터링
 
-        var {error, message} = await $.post('./action/write_post.php', { title, content })
+        var {error, message} = await $.post('../action/post.php', { title, content })
 
         return {error, message}
     }
 
     function goList(){
-        window.location.href = "./posts.php"
+        window.location.href = "../posts.php"
     }
 })

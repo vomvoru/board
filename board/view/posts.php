@@ -10,14 +10,7 @@
   src="http://code.jquery.com/jquery-3.3.1.min.js"
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
   crossorigin="anonymous"></script>
-    <script src="posts.js"></script>
-    <?php
-echo 'test';
-echo 'test';
-echo 'test';
-echo 'test';
-
-?>
+    <script src="./posts.js"></script>
     <title>글 목록</title>
 </head>
 <body>
