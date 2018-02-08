@@ -1,24 +1,22 @@
-<?php
-namespace App\Model;
+<?php namespace App\Model;
 
-include_once $_SERVER["DOCUMENT_ROOT"].'/board/Model/Base.php';
-include_once $_SERVER["DOCUMENT_ROOT"].'/board/Exception/ClientException.php';
+include_once $_SERVER["DOCUMENT_ROOT"].'/path.php';
+
+include_once $_SERVER["DOCUMENT_ROOT"].\App\path\MODEL.'/Base.php';
+include_once $_SERVER["DOCUMENT_ROOT"].\App\path\EXCEPTION.'/ClientException.php';
+include_once $_SERVER["DOCUMENT_ROOT"].\App\path\CONFIG.'/DB.conf.php';
 
 use Exception;
 use Mysqli;
 use App\Exception\ClientException;
+use App\config;
 
 class MySQL extends Base {
     private $mysqli;
     
-    //TODO 파일로 추출
-    private $host = '127.0.0.1:3306';
-    private $username = 'pch';
-    private $password = '1q2w3e4r%';
-    private $database = 'board';
-    
     public function connect(){
-        $this->mysqli = new mysqli($this->host, $this->username, $this->password, $this->database);
+        $this->mysqli = new mysqli(config\DB\HOST, config\DB\USERNAME, config\DB\PASSWORD, config\DB\DATABASE);
+        
         if ($this->mysqli->connect_errno) {
             throw new Exception('db 접속 실패');
         }
@@ -29,8 +27,6 @@ class MySQL extends Base {
     }
     
     public function createPost($title, $content) {
-        //TODO 대략 이런식으로: $DB->insert(array('Title' => $title, 'Contnet' => $Content));
-        // http://docs.sequelizejs.com/ 참고
         $query = 'INSERT INTO Post (Title, Content) VALUES ("'.$title.'", "'.$content.'")';
         $queryResult = $this->runQuery($query);
         

@@ -1,5 +1,4 @@
-<?php
-namespace App;
+<?php namespace App;
 
 //TODO Route maping
 class Request{

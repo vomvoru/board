@@ -1,8 +1,9 @@
-<?php
-namespace App;
+<?php namespace App;
 
-include_once $_SERVER["DOCUMENT_ROOT"].'/board/Response.php';
-include_once $_SERVER["DOCUMENT_ROOT"].'/board/Exception/ClientException.php';
+include_once $_SERVER["DOCUMENT_ROOT"].'/path.php';
+
+include_once $_SERVER["DOCUMENT_ROOT"].\App\path\SERVER.'/Response.php';
+include_once $_SERVER["DOCUMENT_ROOT"].\App\path\EXCEPTION.'/ClientException.php';
 
 use Exception;
 use App\Exception\ClientException;

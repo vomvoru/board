@@ -1,7 +1,8 @@
-<?php
-namespace App\Model;
+<?php namespace App\Model;
 
-include_once $_SERVER["DOCUMENT_ROOT"].'/board/DesginPattern/Singleton.php';
+include_once $_SERVER["DOCUMENT_ROOT"].'/path.php';
+
+include_once $_SERVER["DOCUMENT_ROOT"].\App\path\DESGIN_PATTERN.'/Singleton.php';
 
 use App\DesginPattern\Singleton;
 

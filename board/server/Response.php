@@ -1,5 +1,4 @@
-<?php
-namespace App;
+<?php namespace App;
 
 class Response{
     public static function _sendJSON($data = array(), $error = FALSE, $message = ''){

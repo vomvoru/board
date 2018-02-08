@@ -1,7 +1,6 @@
-<?php
-namespace App\DesginPattern;
-// 참조: http://wafe.github.io/php-the-right-way/pages/Design-Patterns.html
+<?php namespace App\DesginPattern;
 
+// 참조: http://wafe.github.io/php-the-right-way/pages/Design-Patterns.html
 abstract class Singleton
 {
     public static function getInstance()

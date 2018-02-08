@@ -36,7 +36,7 @@ jQuery(($) => {
 
         // @TODO client 필터링
 
-        var {error, message} = await $.post('../action/post.php', { title, content })
+        var {error, message} = await $.post('../server/action/post.php', { title, content })
 
         return {error, message}
     }

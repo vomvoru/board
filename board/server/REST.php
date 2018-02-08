@@ -1,5 +1,4 @@
-<?php
-namespace App;
+<?php namespace App;
 
 abstract class REST {
     public function run() {
