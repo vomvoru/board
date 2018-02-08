@@ -12,16 +12,12 @@
     <title>포스트</title>
 </head>
 <body>
-<?php include('./nav.php') ?>
-<h1>게시물</h1>
-<h1 id="title"></h1>
-<div id="content">
-</div>
-<div id="comments">
-</div>
-<textarea id="comment" cols="30" rows="10">
-
-</textarea>
-<input type="button" id="send" value="댓글 작성">
+  <?php include('./nav.php') ?>
+  <h1>게시물</h1>
+  <h1 id="title"></h1>
+  <div id="content"></div>
+  <div id="comments"></div>
+  <textarea id="comment" cols="30" rows="10"></textarea>
+  <input type="button" id="send" value="댓글 작성">
 </body>
 </html>

@@ -13,11 +13,9 @@
 </head>
 <body>
     <?php include('./nav.php') ?> 
-<h1>글쓰기</h1>
+    <h1>글쓰기</h1>
     <input type="text" id="title" placeholder="제목">
-    <textarea id="content" cols="30" rows="10">
-
-    </textarea>
+    <textarea id="content" cols="30" rows="10"></textarea>
     <input type="button" id="send" value="글쓰기">
 </body>
 </html>

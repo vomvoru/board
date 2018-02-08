@@ -14,9 +14,8 @@
     <title>글 목록</title>
 </head>
 <body>
-<?php include('./nav.php') ?>
-<h1>글목록</h1>
-<ol id="posts">
-</ol>
+  <?php include('./nav.php') ?>
+  <h1>글목록</h1>
+  <ol id="posts"></ol>
 </body>
 </html>
